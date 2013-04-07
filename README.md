@@ -1,6 +1,6 @@
-# JRubyCursus
+# JRubyCurses
 
-Partial implementation of the Ruby cursus library developed to run with 
+Partial implementation of the Ruby curses library developed to run with 
 jRuby and Java/Swing.
 
 ## Installation
@@ -8,7 +8,7 @@ jRuby and Java/Swing.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'jruby_cursus'
+gem 'jruby_curses'
 ```
 
 And then execute:
@@ -20,19 +20,19 @@ $ bundle
 Or install it yourself as:
 
 ```console
-$ gem install jruby_cursus
+$ gem install jruby_curses
 ```
 
 ## Usage
 
 ```ruby
-require 'cursus'
+require 'curses'
 ```
    
-Then use the cusus' APIs with the hope it is implemented...
+Then use the curses' APIs with the hope it is implemented...
 
-The gem name is "jruby_cursus" but the client code requires "cursus" so 
-that it can the code is compatible with RMI native cursus.
+The gem name is "jruby_curses" but the client code requires "curses" so 
+that it can the code is compatible with RMI native curses.
 
 ## Contributing
 

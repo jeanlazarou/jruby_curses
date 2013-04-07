@@ -11,11 +11,11 @@ import javax.swing.Timer
 import javax.swing.JFrame
 import javax.swing.JPanel
 
-require 'jruby_cursus/screen_buffer'
+require 'jruby_curses/screen_buffer'
 
-module JRubyCursus
+module JRubyCurses
 
-  CURSUS_ZOOM_ENABLED = TRUE
+  CURSES_ZOOM_ENABLED = TRUE
 
   class Board < JPanel
     
@@ -58,14 +58,14 @@ module JRubyCursus
             @last_input = "\r"
           when KeyEvent::VK_ADD
             if @zoom_factor <= 4
-              if CURSUS_ZOOM_ENABLED and evt.getModifiersEx & KeyEvent::CTRL_DOWN_MASK == KeyEvent::CTRL_DOWN_MASK
+              if CURSES_ZOOM_ENABLED and evt.getModifiersEx & KeyEvent::CTRL_DOWN_MASK == KeyEvent::CTRL_DOWN_MASK
                 @zoom_factor += 0.4
                 change_zoom
               end
             end
           when KeyEvent::VK_SUBTRACT
             if @zoom_factor >= 0.6
-              if CURSUS_ZOOM_ENABLED and evt.getModifiersEx & KeyEvent::CTRL_DOWN_MASK == KeyEvent::CTRL_DOWN_MASK
+              if CURSES_ZOOM_ENABLED and evt.getModifiersEx & KeyEvent::CTRL_DOWN_MASK == KeyEvent::CTRL_DOWN_MASK
                 @zoom_factor -= 0.2
                 change_zoom
               end
@@ -291,7 +291,7 @@ module Curses
   
   def self.init_screen
     
-    $board = JRubyCursus::Board.new
+    $board = JRubyCurses::Board.new
     
     $frame = JFrame.new("Swing/Curses")
     

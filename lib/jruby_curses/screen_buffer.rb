@@ -1,6 +1,6 @@
 #encoding: utf-8
 
-module JRubyCursus
+module JRubyCurses
 
   class ScreenBuffer
     

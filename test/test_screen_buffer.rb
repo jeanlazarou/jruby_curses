@@ -1,8 +1,8 @@
 require 'test/unit'
 
-require 'jruby_cursus/screen_buffer'
+require 'jruby_curses/screen_buffer'
 
-module JRubyCursus
+module JRubyCurses
 
   class TestStyles < Test::Unit::TestCase
     
