@@ -368,7 +368,17 @@ module Curses
       @cursor_column = 0
       
     end
-      
+
+    def cursor_line= line
+      @cursor_line = line
+      $board.at @cursor_column, line
+    end
+
+    def cursor_column= col
+      @cursor_column = col
+      $board.at col, @cursor_line
+    end
+    
     def close
       
       @empty_line = ' ' * @width unless @empty_line
@@ -385,8 +395,8 @@ module Curses
     
     def setpos line, column
       
-      @cursor_line = line
-      @cursor_column = column
+      self.cursor_line = line
+      self.cursor_column = column
       
       $board.at @origin_column + column, @origin_line + line
       
@@ -398,11 +408,11 @@ module Curses
       
       str.each_line do |str|
         
-        @cursor_column = 0
+        self.cursor_column = 0
         
         $board.display_at line, @origin_column + @cursor_column, str
         
-        @cursor_column += str.size
+        self.cursor_column = @cursor_column + str.size
         
         line += 1
         
@@ -474,11 +484,11 @@ module Curses
         
         return if @stop_column == @cursor_column
         
-        @cursor_column -= 1
+        self.cursor_column = @cursor_column - 1
         $board.remove_at line, column - 1
         
       else
-        @cursor_column += 1
+        self.cursor_column = @cursor_column + 1
         $board.display_at line, column, ch
       end
     
